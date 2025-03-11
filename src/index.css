@@ -54,15 +54,18 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+/* ----------- LIGHT MODE START ---------- */
+
+html.light {
+  color: #213547;
+  background-color: #ffffff;
 }
+html.light a:hover {
+  color: #747bff;
+}
+html.light button {
+  color: #213547;
+  background-color: #f9f9f9;
+}
+
+/* ----------- LIGHT MODE END ---------- */
