@@ -1,28 +1,33 @@
-import { createContext, useState, useEffect } from "react";
-import { Theme, ThemeContextType, ThemeProviderProps } from "./ThemeContext.types";
+import { createContext, useState, useContext, ReactNode, useEffect } from "react";
+import { ThemeContextType } from "./ThemeContext.types";
 
-export const ThemeContext = createContext<ThemeContextType>({
-    theme: "dark",
-    setTheme: () => {}
+export const ThemeContext = createContext<ThemeContextType | null>(null);
+
+export const useTheme = () => {
+  const context = useContext(ThemeContext);
+
+  if (!context) {
+    throw new Error('useTheme must be used within a ThemeProvider');
   }
-);
 
-export const ThemeProvider = ({ children }: ThemeProviderProps) => {
-  const [theme, setTheme] = useState<Theme>(
-    localStorage.getItem("theme") as Theme || "dark"
-  );
+  return context;
+};
+
+
+export const ThemeProvider = ({ children }: {children : ReactNode}) => {
+  const [darkMode, setDarkMode] = useState(localStorage.getItem("dark-mode") === 'true' ? true : false);
 
   useEffect(() => {
-    if (theme === "light") {
-      document.documentElement.classList.add("light");
+    if (darkMode) {
+      document.documentElement.classList.add("dark");
     } else {
-      document.documentElement.classList.remove("light");
+      document.documentElement.classList.remove("dark");
     }
-    localStorage.setItem("theme", theme);
-  }, [theme]);
+    localStorage.setItem("dark-mode", darkMode.toString());
+  }, [darkMode]);
 
   return (
-    <ThemeContext.Provider value={{ theme, setTheme }}>
+    <ThemeContext.Provider value={{ darkMode, setDarkMode}}>
       {children}
     </ThemeContext.Provider>
   );

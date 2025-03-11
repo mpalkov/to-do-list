@@ -1,16 +1,14 @@
-import { useContext } from "react";
-import { ThemeContext } from "../../context/ThemeContext";
-import { ThemeContextType } from "../../context/ThemeContext.types";
+import { useTheme } from "../../context/ThemeContext";
 
 const ThemeToggle = () => {
-  const { theme, setTheme } = useContext<ThemeContextType>(ThemeContext);
+  const { darkMode, setDarkMode } = useTheme();
 
   return (
     <button
       className="p-2 bg-gray-200 dark:bg-gray-800 text-gray-800 dark:text-gray-200 rounded transition-all"
-      onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+      onClick={() => setDarkMode(darkMode ? false : true)}
     >
-      {theme === "light" ? "🌙 Dark Mode" : "☀️ Light Mode" }
+      {darkMode ? "☀️ Light Mode" : "🌙 Dark Mode"}
     </button>
   );
 };

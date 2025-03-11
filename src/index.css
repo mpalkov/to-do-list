@@ -4,8 +4,8 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: #213547;
+  background-color: #ffffff;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -19,7 +19,7 @@ a {
   text-decoration: inherit;
 }
 a:hover {
-  color: #535bf2;
+  color: #747bff;
 }
 
 body {
@@ -42,7 +42,8 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  color: #213547;
+  background-color: #f9f9f9;
   cursor: pointer;
   transition: border-color 0.25s;
 }
@@ -51,21 +52,19 @@ button:hover {
 }
 button:focus,
 button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  outline: 0px auto -webkit-focus-ring-color;
 }
 
-/* ----------- LIGHT MODE START ---------- */
-
-html.light {
-  color: #213547;
-  background-color: #ffffff;
+/* ----------- DARK MODE START ---------- */
+html.dark {
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
 }
-html.light a:hover {
-  color: #747bff;
+html.dark a:hover {
+  color: #535bf2;
 }
-html.light button {
-  color: #213547;
-  background-color: #f9f9f9;
+html.dark button {
+  /* color: #213547; */
+  background-color: #1a1a1a;
 }
-
-/* ----------- LIGHT MODE END ---------- */
+/* ----------- DARK MODE END ---------- */
