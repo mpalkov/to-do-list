@@ -46,6 +46,7 @@ a:hover {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 0;
 }
 
 body {
@@ -141,6 +142,10 @@ html.dark .filter-options.open {
     padding: 1rem;
     border-radius: 20px;
     background-color: #eaedf7;
+  }
+
+  .flex-center {
+    margin-bottom: 0.9rem;
   }
 
 }
