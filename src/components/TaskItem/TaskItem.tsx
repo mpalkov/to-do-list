@@ -1,12 +1,12 @@
-import SvgIcon from '../svg-icon/svg-icon';
-import { TaskData } from '../to-do-list/to-do-list.schemas';
-import './task.css';
+import SvgIcon from '../SvgIcon/SvgIcon';
+import { TaskData } from '../ToDoList/to-do-list.schemas';
+import './TaskItem.css';
 
 const removeTask = (id: string) => {
   // reduce the list of tasks in the ContentProvider context by removing the task with the given id  
 }
 
-const Task = (props: TaskData) => {
+const TaskItem = (props: TaskData) => {
 
   return (
     <article className="task" data-id={props.id}>
@@ -25,4 +25,4 @@ const Task = (props: TaskData) => {
   );
 };
 
-export default Task;
+export default TaskItem;

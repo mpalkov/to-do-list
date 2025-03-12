@@ -1,7 +1,7 @@
 import './App.css';
 import { ThemeProvider } from './context/ThemeContext';
-import ThemeToggle from './components/theme-toggle/ThemeToggle';
-import ToDoList from './components/to-do-list/to-do-list';
+import ThemeToggle from './components/ThemeToggle/ThemeToggle';
+import ToDoList from './components/ToDoList/ToDoList';
 // import { ContentProvider } from './context/ContentContext';
 
 function App() {
@@ -24,7 +24,9 @@ function App() {
         </nav>
         <ThemeToggle />
       </header>
-      <ToDoList />
+      <main>
+        <ToDoList />
+      </main>
     </ThemeProvider>
     {/* </ContentProvider> */}
     </>

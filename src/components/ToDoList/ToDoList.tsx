@@ -1,7 +1,7 @@
-import Task from '../task/task';
-import './to-do-list.css';
-import { TaskData } from './to-do-list.schemas';
-import { useContent } from '../../context/ContentContext';
+import TaskItem from '../TaskItem/TaskItem';
+import './ToDoList.css';
+import { TaskData } from '../../types/tasks';
+// import { useContent } from '../../context/ContentContext';
 
 const TEMP_TASKS_DATA = [
   {
@@ -72,7 +72,7 @@ const ToDoList = () => {
 const allTasks = TEMP_TASKS_DATA;
   
 const TaskElements = allTasks.map((task: TaskData) => (
-  <Task 
+  <TaskItem 
   key={task.id}
   id={task.id}
   title={task.title}
@@ -82,9 +82,9 @@ const TaskElements = allTasks.map((task: TaskData) => (
   
 
   return (
-    <main>
+    <>
      {TaskElements}
-    </main>
+    </>
   );
 };
 
