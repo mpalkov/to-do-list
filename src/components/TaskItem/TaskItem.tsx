@@ -1,24 +1,22 @@
 import SvgIcon from '../SvgIcon/SvgIcon';
-import { TaskData } from '../ToDoList/to-do-list.schemas';
+import { TaskData } from '../../types/tasks';
+import { useContentContext } from '../../context/ContentContext';
 import './TaskItem.css';
 
-const removeTask = (id: string) => {
-  // reduce the list of tasks in the ContentProvider context by removing the task with the given id  
-}
-
-const TaskItem = (props: TaskData) => {
+const TaskItem = ({task}: {task: TaskData}) => {
+  const { toggleTask, deleteTask } = useContentContext(); 
 
   return (
-    <article className="task" data-id={props.id}>
+    <article className="task" data-id={task.id}>
       <div className='content'>
-        <button className='check-btn' title="marcar como completado">
-          <SvgIcon iconName={'unchecked'}/>
+        <button className='checkbox' title="Cambiar el estado de la tarea" onClick={() => toggleTask(task.id)} >
+          <SvgIcon iconName={task.completed ? 'checked': 'unchecked'}/>
         </button>
         <div>
-          {props.title}
+          {task.title}
         </div>
       </div>
-      <button className='delete-btn' title="borrar la tarea" onClick={() => removeTask(props.id.toString())}>
+      <button className='delete-btn' title="borrar la tarea" onClick={() => deleteTask(task.id)}>
         <SvgIcon iconName={'trashBin'}/>
       </button>
     </article>
