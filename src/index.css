@@ -51,7 +51,7 @@ body {
   background-color: var(--light-separation-color);
 }
 
-button {
+.btn {
   border-radius: 12px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
@@ -63,11 +63,11 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
-button:hover {
+.btn:hover {
   border-color: var(--light-action-color);
 }
-button:focus,
-button:focus-visible {
+.btn:focus,
+.btn:focus-visible {
   outline: 0px auto -webkit-focus-ring-color;
 }
 
@@ -85,7 +85,7 @@ html.dark body {
 html.dark a:hover {
   color: var(--dark-separation-color);
 }
-html.dark button {
+html.dark .btn {
   color: var(--dark-text-color);
   background-color: var(--dark-separation-color);
 }

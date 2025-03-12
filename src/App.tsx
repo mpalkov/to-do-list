@@ -2,11 +2,13 @@ import './App.css';
 import { ThemeProvider } from './context/ThemeContext';
 import ThemeToggle from './components/theme-toggle/ThemeToggle';
 import ToDoList from './components/to-do-list/to-do-list';
+// import { ContentProvider } from './context/ContentContext';
 
 function App() {
 
   return (
     <>
+    {/* <ContentProvider> */}
     <ThemeProvider>
       <header>
         {/* < NavFilter /> */}
@@ -15,15 +17,16 @@ function App() {
             Ver:
           </span>
           <ul>
-            <li><button>Todas</button></li>
-            <li><button>Completadas</button></li>
-            <li><button>Pendientes</button></li>
+            <li><button className='btn'>Todas</button></li>
+            <li><button className='btn'>Completadas</button></li>
+            <li><button className='btn'>Pendientes</button></li>
           </ul>
         </nav>
         <ThemeToggle />
       </header>
       <ToDoList />
     </ThemeProvider>
+    {/* </ContentProvider> */}
     </>
   )
 }

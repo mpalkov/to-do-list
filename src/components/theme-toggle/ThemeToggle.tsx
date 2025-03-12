@@ -4,7 +4,7 @@ const ThemeToggle = () => {
   const { darkMode, setDarkMode } = useTheme();
 
   return (
-    <button
+    <button className='btn' title="Cambiar tema"
       onClick={() => setDarkMode(darkMode ? false : true)}
     >
       {darkMode ? (<>☀️<span className="desktop-only"> Modo claro</span></>) : (<>🌙<span className="desktop-only">  Modo oscuro</span></>)}
