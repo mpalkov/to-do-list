@@ -5,10 +5,9 @@ const ThemeToggle = () => {
 
   return (
     <button
-      className="p-2 bg-gray-200 dark:bg-gray-800 text-gray-800 dark:text-gray-200 rounded transition-all"
       onClick={() => setDarkMode(darkMode ? false : true)}
     >
-      {darkMode ? "☀️ Light Mode" : "🌙 Dark Mode"}
+      {darkMode ? (<>☀️<span className="desktop-only"> Modo claro</span></>) : (<>🌙<span className="desktop-only">  Modo oscuro</span></>)}
     </button>
   );
 };

@@ -3,14 +3,34 @@
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
-  color: #213547;
-  background-color: #ffffff;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /* ----------- COLOR CONFIG START ---------- */
+  --light-action-color: #2F69FE;
+  --light-text-color: #000118;
+  --light-done-color: #9999A3;
+  --light-bg-color: #FFFFFF;
+  --light-separation-color: #EFF1F7;
+
+  --dark-action-color: #1F57E7;
+  --dark-text-color: #ffffff;
+  --dark-done-color: #BEBEBE;
+  --dark-bg-color: #0F0E13;
+  --dark-separation-color: #303239;
+  /* ----------- COLOR CONFIG END ---------- */
+
+  --tasks-per-row: 2;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 a {
@@ -25,30 +45,26 @@ a:hover {
 body {
   margin: 0;
   display: flex;
-  place-items: center;
-  min-width: 320px;
+  /* place-items: center; */
+  width: 100%;
   min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+  background-color: var(--light-separation-color);
 }
 
 button {
-  border-radius: 8px;
+  border-radius: 12px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  color: #213547;
+  color: var(--light-text-color);
   background-color: #f9f9f9;
   cursor: pointer;
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: var(--light-action-color);
 }
 button:focus,
 button:focus-visible {
@@ -57,14 +73,26 @@ button:focus-visible {
 
 /* ----------- DARK MODE START ---------- */
 html.dark {
-  color: rgba(255, 255, 255, 0.87);
+  color: var(--dark-text-color);
   background-color: #242424;
 }
+
+html.dark body {
+  color: var(--dark-text-color);
+  background-color: #242424;
+}
+
 html.dark a:hover {
-  color: #535bf2;
+  color: var(--dark-separation-color);
 }
 html.dark button {
-  /* color: #213547; */
-  background-color: #1a1a1a;
+  color: var(--dark-text-color);
+  background-color: var(--dark-separation-color);
 }
 /* ----------- DARK MODE END ---------- */
+
+@media (width <= 750px) {
+  .desktop-only {
+    display:none;
+  }
+}

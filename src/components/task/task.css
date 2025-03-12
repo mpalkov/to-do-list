@@ -1,0 +1,70 @@
+.task {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: solid var(--light-separation-color) 1px;
+  padding: 16px 0;
+  background-color: transparent;
+}
+
+@media (width > 750px) {
+  .task {
+    flex: 0 0
+    calc(
+      (100% - (25px * (var(--tasks-per-row) - 1))) /
+        var(--tasks-per-row)
+    );
+    /* width: 275px; */
+    flex-direction: column;
+    background-color: var(--light-bg-color);
+    /* margin: 20px 0; */
+    padding: 16px 1.7rem;
+    border-radius: 20px;
+  }
+  .task .delete-btn {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .gallery-item {
+    flex: 0 0
+      calc(
+        (100% - (var(--gallery-gap) * (var(--gallery-items-per-row) - 1))) /
+          var(--gallery-items-per-row)
+      );
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    aspect-ratio: 3 / 2;
+    cursor: pointer;
+    
+    img {
+      border-radius: calc(4vw / var(--gallery-items-per-row));
+      aspect-ratio: 3 / 2;
+      object-fit: cover;
+    }
+  }
+
+  html.dark .task {
+    background-color: var(--dark-bg-color); 
+  }
+}
+
+/* DARK MODE */
+
+html.dark .task {
+  border-bottom: solid var(--dark-separation-color) 1px;
+}
+
+@media (width >= 1200px) {
+  :root {
+    --tasks-per-row: 4;
+  }
+}
+
+@media (950px < width < 1200px) {
+  :root {
+    --tasks-per-row: 3;
+  }
+}
