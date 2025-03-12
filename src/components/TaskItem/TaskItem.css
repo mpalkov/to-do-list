@@ -8,7 +8,7 @@
   background-color: transparent;
 }
 
-.task .check-btn,
+.task .checkbox,
 .task .delete-btn {
   flex: 0 0 1.2rem;
   height: 1.2rem;
@@ -21,7 +21,7 @@
   cursor: pointer;
 }
 
-.task .check-btn svg,
+.task .checkbox svg,
 .task .delete-btn svg {
   width: 1.2rem;
   height: auto;

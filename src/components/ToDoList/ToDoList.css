@@ -3,6 +3,7 @@ main {
   display: flex;
   flex-direction: column;
   gap: 0;
+  align-items: flex-start;
   /* min-height: 100%; */
   margin: 20px auto;
   padding: 2rem 1.7rem;
@@ -15,6 +16,7 @@ main {
     background-color: transparent !important;
     flex-direction: row;
     flex-wrap: wrap;
+    align-items: stretch;
     gap: 25px;
     padding-left: 0;
     padding-right: 0;

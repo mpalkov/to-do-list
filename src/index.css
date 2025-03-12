@@ -42,6 +42,12 @@ a:hover {
   color: #747bff;
 }
 
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 body {
   margin: 0;
   display: flex;
@@ -52,6 +58,8 @@ body {
 }
 
 .btn {
+  display: flex;
+  gap: 0.5rem;
   border-radius: 12px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
@@ -69,6 +77,13 @@ body {
 .btn:focus,
 .btn:focus-visible {
   outline: 0px auto -webkit-focus-ring-color;
+}
+
+.desktop-only {
+  display:flex;
+}
+.mobile-only {
+  display:none;
 }
 
 /* ----------- DARK MODE START ---------- */
@@ -89,10 +104,43 @@ html.dark .btn {
   color: var(--dark-text-color);
   background-color: var(--dark-separation-color);
 }
+
+html.dark .filter-options.open {
+  background-color: #141414;
+}
 /* ----------- DARK MODE END ---------- */
 
 @media (width <= 750px) {
   .desktop-only {
     display:none;
   }
+  .mobile-only {
+    display:flex;
+  }
+
+  .filter-options {
+    display: none;
+  }
+
+  .filter-mobile {
+    position: relative;
+  }
+
+  .filter-options.open {
+    display: flex;
+    flex-direction: column;
+    /* display: none; */
+    position: absolute;
+    list-style: none;
+    overflow: hidden;
+    top: 3.2rem;
+    left: 1rem;
+    /* bottom: -165px; */
+    right: unset;
+    z-index: 1;
+    padding: 1rem;
+    border-radius: 20px;
+    background-color: #eaedf7;
+  }
+
 }
