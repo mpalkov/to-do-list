@@ -13,7 +13,7 @@ Inicialización
 Clona el repositorio e instala las dependencias:
 
 ```bash
-git clone https://github.com/mpalkov/to-do-list_APP.git
+git clone https://github.com/mpalkov/to-do-list.git
 
 cd to-do-list_APP
 
