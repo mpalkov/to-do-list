@@ -3,7 +3,7 @@ import { FilterType } from '../types';
 import { TaskData } from '../types/tasks';
 import { fetchTasks } from '../utils/api';
 import { ContentState, ContentContextType } from '../types/contentContext';
-import { applyFilter } from '../utils/contentContext';
+import { applyFilter } from '../utils/filter';
 
 type TaskAction =
   | { type: 'FETCH_TASKS_START' }
@@ -32,7 +32,7 @@ const contentReducer = (state: ContentState, action: TaskAction): ContentState =
       return {
         ...state,
         tasks: action.payload,
-        filteredTasks: action.payload,
+        filteredTasks: applyFilter(action.payload, state.filter),
         loading: false,
       };
     
@@ -89,12 +89,16 @@ export const ContentProvider: React.FC<{ children: React.ReactNode }> = ({ child
       const initialLoadComplete = savedInitialLoadComplete 
         ? JSON.parse(savedInitialLoadComplete) 
         : false;
+
+      const savedFilter = localStorage.getItem('filter');
+      const filter = savedFilter ? JSON.parse(savedFilter) : 'all';
       
       return {
         ...initialState,
         tasks,
-        filteredTasks: tasks,
+        filteredTasks: applyFilter(tasks, filter),
         initialLoadComplete,
+        filter,
       };
     } catch (error) {
       console.error('Error reading from localStorage:', error);
@@ -131,6 +135,10 @@ export const ContentProvider: React.FC<{ children: React.ReactNode }> = ({ child
     
     localStorage.setItem('initialLoadComplete', JSON.stringify(state.initialLoadComplete));
   }, [state.tasks, state.initialLoadComplete]);
+
+  useEffect(() => {
+    localStorage.setItem('filter', JSON.stringify(state.filter));
+  }, [state.filter]);
 
   const toggleTask = (id: number) => {
     dispatch({ type: 'TOGGLE_TASK', payload: id });
