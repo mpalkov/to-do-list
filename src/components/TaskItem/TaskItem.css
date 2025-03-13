@@ -1,8 +1,10 @@
 .task {
   width: 100%;
   display: flex;
+  gap: 0.5rem;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   border-bottom: solid var(--light-separation-color) 1px;
   padding: 16px 0;
   background-color: transparent;
@@ -15,8 +17,6 @@
   border-radius: 0;
   border: 0;
   padding: 0;
-  /* font-size: 1em;
-  font-weight: 500; */
   background-color: transparent;
   cursor: pointer;
 }
@@ -44,50 +44,7 @@
   align-items: center;
 }
 
-@media (width > 750px) {
-  .task {
-    flex: 0 0
-    calc(
-      (100% - (25px * (var(--tasks-per-row) - 1))) /
-        var(--tasks-per-row)
-    );
-    /* width: 275px; */
-    flex-direction: column;
-    background-color: var(--light-bg-color);
-    /* margin: 20px 0; */
-    padding: 16px 1.7rem;
-    border-radius: 20px;
-  }
-  .task .delete-btn {
-    display: flex;
-    justify-content: flex-end;
-  }
-
-  .gallery-item {
-    flex: 0 0
-      calc(
-        (100% - (var(--gallery-gap) * (var(--gallery-items-per-row) - 1))) /
-          var(--gallery-items-per-row)
-      );
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    aspect-ratio: 3 / 2;
-    cursor: pointer;
-    
-    img {
-      border-radius: calc(4vw / var(--gallery-items-per-row));
-      aspect-ratio: 3 / 2;
-      object-fit: cover;
-    }
-  }
-
-  html.dark .task {
-    background-color: var(--dark-bg-color); 
-  }
-}
-
-/* DARK MODE */
+/* ----------- DARK MODE START ---------- */
 
 html.dark .task {
   border-bottom: solid var(--dark-separation-color) 1px;
@@ -98,14 +55,31 @@ html.dark .task:last-child,
   border-bottom: none;
 }
 
-@media (width >= 1200px) {
-  :root {
-    --tasks-per-row: 4;
+/* ----------- DARK MODE END ---------- */
+
+/* ----------- RESPONSIVE START ---------- */
+@media (width > 750px) {
+  .task {
+    flex: 0 0
+    calc(
+      (100% - (25px * (var(--tasks-per-row) - 1))) /
+        var(--tasks-per-row)
+    );
+    align-items: unset;
+    flex-direction: column;
+    background-color: var(--light-bg-color);
+    padding: 16px 1.7rem;
+    border-radius: 20px;
+  }
+
+  .task .delete-btn {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  html.dark .task {
+    background-color: var(--dark-bg-color); 
   }
 }
 
-@media (950px < width < 1200px) {
-  :root {
-    --tasks-per-row: 3;
-  }
-}
+/* ----------- RESPONSIVE END ---------- */
